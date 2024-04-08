@@ -1,6 +1,6 @@
 # Plateforme de micro-blogging
 
-## [Windows] Pré-requis : installer WSL 2 (POUIT POUIT)
+## [Windows] Pré-requis : installer WSL 2 (POUIT POUIT POUIT)
 
 🟡 Si vous ne l'avez toujours pas fait, installez WSL 2. Voir la [doc officielle de WSL 2](https://learn.microsoft.com/fr-fr/windows/wsl/install).
 
