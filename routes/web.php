@@ -3,9 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
-
+use App\Http\Controllers\PostController;
 /*
-|--------------------------------------------------------------------------
+---------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
@@ -32,6 +32,6 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 
-Route::get('/home', function() {
-    return view('home'); 
-});
+
+
+Route::get('/home', [PostController::class, 'index'])->name('home');
