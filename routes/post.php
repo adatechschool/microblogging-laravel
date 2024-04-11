@@ -16,7 +16,8 @@ use App\Models\Post;
 |
 */
 
-Route::get('/', function() { $posts = Post::factory()->count(5)->create(); 
-    return'succes';});
-
-// Route::post();
+/*
+Route::get('/', function() {
+    $posts = Post::factory()->count(5)->create();
+    return view('acceuil'); // Return the acceuil.blade.php view
+});/*/
