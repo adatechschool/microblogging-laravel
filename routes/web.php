@@ -34,4 +34,4 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/home', [PostController::class, 'index'])->name('home');
+Route::get('/feed', [PostController::class, 'index'])->name('feed');

@@ -14,4 +14,25 @@
             </div>
         </div>
     </div>
+    <div class="py-12">
+
+        <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6 text-gray-900 dark:text-gray-100">
+                <div class ='flex flex-col items-center justify-center border'>
+
+                    @foreach ($posts as $post)
+                        <div class='flex'>
+                            <h1 class="text-3xl font-bold underline">
+                                Hello world!
+                            </h1>
+                            <h1>{{ $post->author->name }}</h1>
+
+                            <img src='{{ $post->url_img }}' />
+                            <p>{{ $post->post_content }}</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
 </x-app-layout>
