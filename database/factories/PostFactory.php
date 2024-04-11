@@ -18,14 +18,15 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            // 'post_content' => $this -> faker -> paragraph,
-            // 'url_img' => $this -> faker -> imageUrl($width = 640, $height = 480),
-            // 'author_id' => $this -> faker -> numberBetween(1, 2),
-            // 'date_creation' => $this -> faker -> dateTime($max = 'now', $timezone = null),
+            'created_at' => fake() -> dateTime($max = 'now', $timezone = null),
+            'updated_at' => fake() -> dateTime($max = 'now', $timezone = null),
+            'author_id' => fake() -> numberBetween(1, 2),
+            'post_content' => fake() -> paragraph,
+            'url_img' => fake() -> imageUrl($width = 640, $height = 480),
             
-            'post_content' => "Mon chat est trop mignon",
-            'url_img' => $this->faker->imageUrl(640, 480, 'cats'),
-            'author_id' => 1,
+            // 'post_content' => "Mon chat est trop mignon",
+            // 'url_img' => $this->faker->imageUrl(640, 480, 'cats'),
+            // 'author_id' => 1,
         ];
     }
 }

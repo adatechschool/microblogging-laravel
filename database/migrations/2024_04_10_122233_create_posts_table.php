@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
          Schema::create('posts', function (Blueprint $table) {
-            $table->id('post_id');
-            $table->timestamp('date_creation')->useCurrent();
+            $table->id();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
             $table->unsignedBigInteger('author_id');
             $table->text('post_content');
             $table->text('url_img')->nullable();
