@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserProfileController;
+
 /*
 ---------------------------------------------------------------------------
 | Web Routes
@@ -29,9 +31,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/account', [ProfileController::class, 'destroy'])->name('account.destroy');
 });
 
-require __DIR__.'/auth.php';
-
-
-
 
 Route::get('/feed', [PostController::class, 'index'])->name('feed');
+
+Route::get('/profile', [UserProfileController::class, 'show'])->middleware('auth');
+
+require __DIR__ . '/auth.php';
