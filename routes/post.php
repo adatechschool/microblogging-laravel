@@ -1,23 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-use App\Models\Post;
+use App\Http\Controllers\Post\AddPostController;
 
+    Route::get('addpost', [AddPostController::class, 'create'])
+                ->name('addpost');
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-/*
-Route::get('/', function() {
-    $posts = Post::factory()->count(5)->create();
-    return view('acceuil'); // Return the acceuil.blade.php view
-});/*/
+    Route::post('addpost', [AddPostController::class, 'store']);

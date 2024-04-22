@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class AddPostController extends Controller
 {
-    public function index()
+    public function create()
     {
         $posts = Post::all();
         return view('feed', compact('posts'));
