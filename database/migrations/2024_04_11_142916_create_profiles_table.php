@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
             $table->text('profile_picture')->nullable();
             $table->text('background_picture')->nullable();
             $table->text('biography')->nullable();
