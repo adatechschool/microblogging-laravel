@@ -1,10 +1,9 @@
 <?php
-
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-use App\Models\Post;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\Post\AddPostController;
+use Illuminate\Support\Facades\Route;
 
 /*
 ---------------------------------------------------------------------------
@@ -17,23 +16,34 @@ use App\Http\Controllers\UserProfileController;
 |
 */
 
+// Route de base pour la page d'accueil
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/feed', function () {
-    return view('feed');
-})->middleware(['auth', 'verified'])->name('feed');
-
+// Groupe de routes nécessitant une authentification
 Route::middleware('auth')->group(function () {
-    Route::get('/account', [ProfileController::class, 'edit'])->name('account.edit');
-    Route::patch('/account', [ProfileController::class, 'update'])->name('account.update');
-    Route::delete('/account', [ProfileController::class, 'destroy'])->name('account.destroy');
+    // Route pour les posts, nécessitant également que l'utilisateur soit vérifié
+    Route::get('/feed', [PostController::class, 'index'])
+        ->middleware('verified')
+        ->name('feed');
+
+    // Routes pour la gestion du compte utilisateur
+    Route::get('/account', [ProfileController::class, 'edit'])
+        ->name('account.edit');
+    Route::patch('/account', [ProfileController::class, 'update'])
+        ->name('account.update');
+    Route::delete('/account', [ProfileController::class, 'destroy'])
+        ->name('account.destroy');
+
+    // Route pour le profil utilisateur
+    Route::get('/profile', [UserProfileController::class, 'show']);
+
+    // Routes pour ajouter des posts
+    Route::get('addpost', [AddPostController::class, 'create'])
+        ->name('addpost');
+    Route::post('addpost', [AddPostController::class, 'store']);
 });
 
-
-Route::get('/feed', [PostController::class, 'index'])->name('feed');
-
-Route::get('/profile', [UserProfileController::class, 'show'])->middleware('auth');
-
+// Inclusion des routes d'authentification
 require __DIR__ . '/auth.php';
