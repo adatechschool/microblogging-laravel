@@ -25,10 +25,6 @@ class DatabaseSeeder extends Seeder
         // Call other seeders
         $this->call([
             PostSeeder::class,
-            ProfileSeeder::class,
         ]);
-
-
-      
     }
 }
