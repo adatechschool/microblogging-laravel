@@ -9,8 +9,13 @@ class UserProfileController extends Controller
 {
     public function show()
     {
+        $user = auth()->user();
+        $profile = $user->profile; 
+
         return view('show', [
-            'user' => auth()->user()
+            'user' => $user,
+            'profile' => $profile,
         ]);
     }
 }
+
