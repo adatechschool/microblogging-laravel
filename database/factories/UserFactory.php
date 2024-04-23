@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Models\User;
+
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -25,6 +27,24 @@ class UserFactory extends Factory
             'remember_token' => Str::random(10),
         ];
     }
+/**
+     * After the user is created, 
+     * it automatically creates a 'default' profile for the user; 
+     * 
+     * @return $this
+     */
+    public function configure()
+    {
+        return $this->afterCreating(function (User $user) {
+            $user->profile()->create([
+                'profile_picture' => $this->faker->imageUrl(128, 128),
+                'background_picture' => $this->faker->imageUrl(640, 360),
+                'biography' => $this->faker->paragraph,
+                'github_link' => $this->faker->url,
+            ]);
+        });
+    }
+
 
     /**
      * Indicate that the model's email address should be unverified.
