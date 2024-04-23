@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
         ->name('account.destroy');
 
     // Route pour le profil utilisateur
-    Route::get('/profile', [UserProfileController::class, 'show']);
+    Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 
     // Routes pour ajouter des posts
     Route::get('addpost', [AddPostController::class, 'create'])
