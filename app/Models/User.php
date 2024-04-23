@@ -10,6 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    /**
+     * Defines a one-to-one relationship with the Profile model.
+     */
     public function profile()
     {
         return $this->hasOne(Profile::class);
