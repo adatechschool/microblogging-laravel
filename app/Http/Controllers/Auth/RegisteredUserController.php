@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Profile;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -40,6 +41,16 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+        ]);
+
+        // Create a default profile for the user
+        //build array
+        Profile::create([
+            'user_id' => $user->id,
+            'profile_picture' => 'default_profile_picture.jpg',
+            'background_picture' => 'default_background_picture.jpg',
+            'biography' => 'This is a default biography.',
+            'github_link' => 'https://github.com/defaultuser',
         ]);
 
         event(new Registered($user));
