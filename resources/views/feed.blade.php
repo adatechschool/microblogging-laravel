@@ -30,6 +30,7 @@
                                         {{ $post->author->name }}
                                     </a>
                                     <h1 class="text-sm font">{{ $post->created_at->format('F j, Y') }}</h1>
+<<<<<<< HEAD
                                     
                                     <div class="relative overflow-hidden">
                                         <img src="{{ $post->url_img }}" alt="Post Image" class="w-full h-64 object-cover">
@@ -41,8 +42,15 @@
                                             @endforeach
                                         @endif
                                     </div>
+=======
                                 </div>
-                                <div class="p-4">
+                            @if (!empty($post->url_img))
+                            <div class="relative overflow-hidden">
+                                    <img src="{{ $post->url_img }}" alt="Post Image" class="w-full h-64 object-cover">
+>>>>>>> 3850094eb7ddf1efbf51d90ed43d562f68ecb873
+                                </div>
+                                @endif 
+                            <div class="p-4">
                                     <p class="text-gray-700 dark:text-gray-300">{{ $post->post_content }}</p>
                                 </div>
                             </div>
