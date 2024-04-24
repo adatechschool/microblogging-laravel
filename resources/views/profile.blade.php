@@ -34,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- Posts of the user added to his profile --}}
+                    {{-- Posts of the user added to his profile--}}
                     @if ($posts)
                         @foreach ($posts as $post)
                             <x-post-display :post="$post" />
