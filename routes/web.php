@@ -2,7 +2,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserProfileController;
-use App\Http\Controllers\Post\AddPostController;
+use App\Http\Controllers\AddPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,7 +42,8 @@ Route::middleware('auth')->group(function () {
     // Routes pour ajouter des posts
     Route::get('addpost', [AddPostController::class, 'create'])
         ->name('addpost');
-    Route::post('addpost', [AddPostController::class, 'store']);
+    Route::post('newpost', [AddPostController::class, 'store'])
+        ->name('newpost');
 });
 
 // Inclusion des routes d'authentification
