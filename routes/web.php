@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserProfileController;
@@ -38,6 +39,9 @@ Route::middleware('auth')->group(function () {
 
     // Route pour le profil utilisateur
     Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
+    Route::get('/profile/edit', [UserProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/update', [UserProfileController::class, 'update'])->name('profile.update');
+
 
     // Routes pour ajouter des posts
     Route::get('addpost', [AddPostController::class, 'create'])
@@ -46,12 +50,8 @@ Route::middleware('auth')->group(function () {
         ->name('newpost');
 });
 
-
 //routes pour acceder au profil d'un utilisateur : 
 Route::get('/user/profile/{user_id}', [UserProfileController::class, 'showProfile'])->name('user.profile');
-
-
-
 
 // Inclusion des routes d'authentification
 require __DIR__ . '/auth.php';
