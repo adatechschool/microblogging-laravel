@@ -46,5 +46,12 @@ Route::middleware('auth')->group(function () {
         ->name('newpost');
 });
 
+
+//routes pour acceder au profil d'un utilisateur : 
+Route::get('/user/profile/{user_id}', [UserProfileController::class, 'showProfile'])->name('user.profile');
+
+
+
+
 // Inclusion des routes d'authentification
 require __DIR__ . '/auth.php';
