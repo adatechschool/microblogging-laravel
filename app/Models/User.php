@@ -10,6 +10,14 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
+    /**
+     * Defines a one-to-one relationship with the Profile model.
+     */
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
+
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -42,4 +50,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Created a function that links the posts to the user('author_id')
+     * function used 'views/components/post-display-blade'
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'author_id');
+    }
 }

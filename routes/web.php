@@ -37,13 +37,20 @@ Route::middleware('auth')->group(function () {
         ->name('account.destroy');
 
     // Route pour le profil utilisateur
-    Route::get('/profile', [UserProfileController::class, 'show']);
+    Route::get('/profile', [UserProfileController::class, 'show'])->name('profile');
 
     // Routes pour ajouter des posts
     Route::get('addpost', [AddPostController::class, 'create'])
         ->name('addpost');
     Route::post('addpost', [AddPostController::class, 'store']);
 });
+
+
+//routes pour acceder au profil d'un utilisateur : 
+Route::get('/user/profile/{user_id}', [UserProfileController::class, 'showProfile'])->name('user.profile');
+
+
+
 
 // Inclusion des routes d'authentification
 require __DIR__ . '/auth.php';
