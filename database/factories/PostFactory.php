@@ -27,6 +27,7 @@ class PostFactory extends Factory
             // 'post_content' => "Mon chat est trop mignon",
             // 'url_img' => $this->faker->imageUrl(640, 480, 'cats'),
             // 'author_id' => 1,
+            //test
         ];
     }
 }
