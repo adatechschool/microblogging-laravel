@@ -4,12 +4,16 @@
 
 ### Prerequisites
 Install WSL 2 && Clone repo 🚩 on the Linux system 🚩
+<br>
 If you haven't already, install WSL 2. Refer to the [official WSL 2 documentation](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 **What is WSL 2?**
+<br>
 WSL (Windows Subsystem for Linux) allows you to run a Linux distribution alongside your Windows system, without a graphical interface. This Linux subsystem operates as a separate OS with its own command terminal and file system, independent of Windows.
 
+
 **Why use WSL 2 for development?**
+<br>
 - Linux shell tools are the standard in modern development.
 - Interacting with Windows files from WSL can cause significant slowdowns, especially when using Docker. By using WSL, you ensure a smoother development experience.
 
